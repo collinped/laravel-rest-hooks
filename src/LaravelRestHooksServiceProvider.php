@@ -2,8 +2,8 @@
 
 namespace Collinped\LaravelRestHooks;
 
-use Illuminate\Support\ServiceProvider;
 use Collinped\LaravelRestHooks\Commands\LaravelRestHooksCommand;
+use Illuminate\Support\ServiceProvider;
 
 class LaravelRestHooksServiceProvider extends ServiceProvider
 {

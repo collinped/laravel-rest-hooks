@@ -2,8 +2,8 @@
 
 namespace Collinped\LaravelRestHooks\Tests;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use Collinped\LaravelRestHooks\LaravelRestHooksServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {

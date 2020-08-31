@@ -4,8 +4,8 @@ namespace Collinped\LaravelRestHooks\Controllers;
 
 use App\Http\Controllers\Controller;
 
-class LaravelRestHooksController extends Controller {
-
+class LaravelRestHooksController extends Controller
+{
     public function index()
     {
         $restHooks = RestHook::forUser(Auth::user()->id)->get();

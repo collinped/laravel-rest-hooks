@@ -9,6 +9,4 @@ class RestHook extends Model
     protected $table = 'rest_hooks';
 
     protected $fillable = ['user_id', 'event', 'target_url', 'trigger'];
-
-
 }
