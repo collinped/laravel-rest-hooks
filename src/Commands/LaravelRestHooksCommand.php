@@ -1,12 +1,12 @@
 <?php
 
-namespace Spatie\Skeleton\Commands;
+namespace Collinped\LaravelRestHooks\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class LaravelRestHooksCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'laravel-rest-hooks';
 
     public $description = 'My command';
 

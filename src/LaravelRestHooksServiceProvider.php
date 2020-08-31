@@ -1,24 +1,20 @@
 <?php
 
-namespace Spatie\Skeleton;
+namespace Collinped\LaravelRestHooks;
 
 use Illuminate\Support\ServiceProvider;
-use Spatie\Skeleton\Commands\SkeletonCommand;
+use Collinped\LaravelRestHooks\Commands\LaravelRestHooksCommand;
 
-class SkeletonServiceProvider extends ServiceProvider
+class LaravelRestHooksServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/skeleton.php' => config_path('skeleton.php'),
+                __DIR__ . '/../config/laravel-rest-hooks.php' => config_path('laravel-rest-hooks.php'),
             ], 'config');
 
-            $this->publishes([
-                __DIR__ . '/../resources/views' => base_path('resources/views/vendor/skeleton'),
-            ], 'views');
-
-            $migrationFileName = 'create_skeleton_table.php';
+            $migrationFileName = 'create_laravel_rest_hooks_table.php';
             if (! $this->migrationFileExists($migrationFileName)) {
                 $this->publishes([
                     __DIR__ . "/../database/migrations/{$migrationFileName}.stub" => database_path('migrations/' . date('Y_m_d_His', time()) . '_' . $migrationFileName),
@@ -26,16 +22,16 @@ class SkeletonServiceProvider extends ServiceProvider
             }
 
             $this->commands([
-                SkeletonCommand::class,
+                LaravelRestHooksCommand::class,
             ]);
         }
 
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'skeleton');
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'laravel-rest-hooks');
     }
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/skeleton.php', 'skeleton');
+        $this->mergeConfigFrom(__DIR__ . '/../config/laravel-rest-hooks.php', 'laravel-rest-hooks');
     }
 
     public static function migrationFileExists(string $migrationFileName): bool

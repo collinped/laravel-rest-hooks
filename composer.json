@@ -1,17 +1,20 @@
 {
-    "name": "spatie/:package_name",
-    "description": ":package_description",
+    "name": "collinped/laravel-rest-hooks",
+    "description": "Package for managing Laravel Rest Hooks for use with platforms like Zapier.",
     "keywords": [
-        "spatie",
-        ":package_name"
+        "collinped",
+        "laravel-rest-hooks",
+        "zapier",
+        "rest hooks",
+        "web hooks"
     ],
-    "homepage": "https://github.com/spatie/:package_name",
+    "homepage": "https://github.com/collinped/laravel-rest-hooks",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": ":author_email",
-            "homepage": "https://spatie.be",
+            "name": "Collin Pedersen",
+            "email": "me@collinped.com",
+            "homepage": "https://www.collinped.com",
             "role": "Developer"
         }
     ],
@@ -27,12 +30,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\Skeleton\\": "src"
+            "Collinped\\LaravelRestHooks\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\Skeleton\\Tests\\": "tests"
+            "Collinped\\LaravelRestHooks\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -47,10 +50,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\Skeleton\\SkeletonServiceProvider"
+                "Collinped\\LaravelRestHooks\\LaravelRestHooksServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "Spatie\\Skeleton\\SkeletonFacade"
+                "LaravelRestHooks": "Collinped\\LaravelRestHooks\\LaravelRestHooksFacade"
             }
         }
     },

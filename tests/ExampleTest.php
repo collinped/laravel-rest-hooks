@@ -1,6 +1,6 @@
 <?php
 
-namespace Spatie\Skeleton\Tests;
+namespace Collinped\LaravelRestHooks\Tests;
 
 class ExampleTest extends TestCase
 {
