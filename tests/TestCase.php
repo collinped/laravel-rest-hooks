@@ -2,8 +2,11 @@
 
 namespace Collinped\LaravelRestHooks\Tests;
 
+use Collinped\LaravelRestHooks\Providers\LaravelRestHooksServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Collinped\LaravelRestHooks\LaravelRestHooksServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -11,7 +14,12 @@ class TestCase extends Orchestra
     {
         parent::setUp();
 
+        $this->setUpDatabase();
+        $this->setUpGuard();
+
         $this->withFactories(__DIR__.'/database/factories');
+
+        Route::rest_hooks('hooks');
     }
 
     protected function getPackageProviders($app)
@@ -30,9 +38,39 @@ class TestCase extends Orchestra
             'prefix' => '',
         ]);
 
-        /*
         include_once __DIR__.'/../database/migrations/create_laravel_rest_hooks_table.php.stub';
-        (new \CreatePackageTable())->up();
-        */
+        (new \CreateLaravelRestHooksTable())->up();
+    }
+
+    protected function setUpDatabase()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->string('email');
+            $table->string('password');
+            $table->string('remember_token');
+            $table->timestamps();
+        });
+
+        Schema::create('jobs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('queue')->index();
+            $table->longText('payload');
+            $table->unsignedTinyInteger('attempts');
+            $table->unsignedInteger('reserved_at')->nullable();
+            $table->unsignedInteger('available_at');
+            $table->unsignedInteger('created_at');
+        });
+    }
+
+    protected function setUpGuard()
+    {
+        config([
+            'auth.guards.alternate' => [
+                'driver' => 'session',
+                'provider' => 'users',
+            ],
+        ]);
     }
 }

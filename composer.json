@@ -5,8 +5,8 @@
         "collinped",
         "laravel-rest-hooks",
         "zapier",
-        "rest hooks",
-        "web hooks"
+        "rest-hooks",
+        "web-hooks"
     ],
     "homepage": "https://github.com/collinped/laravel-rest-hooks",
     "license": "MIT",
@@ -19,7 +19,10 @@
         }
     ],
     "require": {
-        "php": "^7.4"
+        "php": "^7.4",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^6.3",
+        "spatie/laravel-webhook-server": "^1.9"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
@@ -50,11 +53,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Collinped\\LaravelRestHooks\\LaravelRestHooksServiceProvider"
-            ],
-            "aliases": {
-                "LaravelRestHooks": "Collinped\\LaravelRestHooks\\LaravelRestHooksFacade"
-            }
+                "Collinped\\LaravelRestHooks\\Providers\\LaravelRestHooksServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",

@@ -4,7 +4,7 @@
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/collinped/laravel-rest-hooks/run-tests?label=tests)](https://github.com/collinped/laravel-rest-hooks/actions?query=workflow%3Arun-tests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/collinped/laravel-rest-hooks.svg?style=flat-square)](https://packagist.org/packages/collinped/laravel-rest-hooks)
 
-Package for managing [Rest Hooks](https://resthooks.org) in Laravel for use with platforms such as [Zapier](https://zapier.com/).
+Package for managing [Rest Hooks](https://resthooks.org) in Laravel for use with platforms such as [Zapier](https://zapier.com/). Built on top of [spatie/laravel-webhook-server](https://github.com/spatie/laravel-webhook-server).
 
 ## Installation
 
@@ -17,13 +17,13 @@ composer require collinped/laravel-rest-hooks
 You can publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --provider="Collinped\LaravelRestHooks\LaravelRestHooksServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="Collinped\LaravelRestHooks\Providers\LaravelRestHooksServiceProvider" --tag="migrations"
 php artisan migrate
 ```
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Collinped\LaravelRestHooks\LaravelRestHooksServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Collinped\LaravelRestHooks\Providers\LaravelRestHooksServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
@@ -36,8 +36,9 @@ return [
 ## Usage
 
 ``` php
-$laravel-rest-hooks = new Collinped\LaravelRestHooks();
-echo $laravel-rest-hooks->echoPhrase('Hello, Collinped!');
+use Collinped\LaravelRestHooks\RestHook;
+
+$restHook = RestHook::forUser(auth()->user()->id())>find($id);
 ```
 
 ## Testing
@@ -61,6 +62,7 @@ If you discover any security related issues, please email me@collinped.com inste
 ## Credits
 
 - [Collin Pedersen](https://github.com/collinped)
+- [Spatie](https://github.com/spatie) - [spatie/laravel-webhook-server](https://github.com/spatie/laravel-webhook-server) is used in the background for processing web hooks. 
 
 ## License
 
