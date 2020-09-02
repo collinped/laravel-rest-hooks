@@ -4,7 +4,6 @@
 namespace Collinped\LaravelRestHooks\Observers;
 
 use Collinped\LaravelRestHooks\RestHookable;
-use Collinped\LaravelRestHooks\Models\RestHook;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -59,7 +58,6 @@ class RestHookableObserver
         $data = $this->buildDataToLog('update', $model);
 
         foreach ($this->getHookableAttributes($model) as $change) {
-
             $data['attribute'] = $change['attribute'];
             $data['old_value'] = $change['old_value'];
             $data['new_value'] = $change['new_value'];
@@ -81,5 +79,4 @@ class RestHookableObserver
 
         // Change::create($data);
     }
-
 }

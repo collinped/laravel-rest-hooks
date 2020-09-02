@@ -3,9 +3,9 @@
 namespace Collinped\LaravelRestHooks\Tests;
 
 use Collinped\LaravelRestHooks\Providers\LaravelRestHooksServiceProvider;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
