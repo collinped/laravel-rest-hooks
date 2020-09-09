@@ -25,6 +25,9 @@ class DeactivateFinalFailedRestHook
      */
     public function handle(FinalWebhookCallFailedEvent $event)
     {
-        RestHook::where('target_url', $event->webhookUrl)->update(['active' => false]);
+        $restHook = RestHook::where('target_url', $event->webhookUrl)->first();
+        if ($restHook) {
+            $restHook->update(['active' => false]);
+        }
     }
 }

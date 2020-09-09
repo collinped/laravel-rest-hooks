@@ -15,9 +15,14 @@ class RestHook extends Model
 
     protected $fillable = ['user_id', 'event', 'target_url', 'trigger', 'active'];
 
-    public function scopeForUser($query, $userId)
+    public function scopeForUser(Builder $query, $userId): Builder
     {
         return $query->where('user_id', $userId);
+    }
+
+    public function scopeActive(Builder $query): Builder
+    {
+        return $query->where('active', true);
     }
 
     /**
@@ -63,7 +68,6 @@ class RestHook extends Model
      */
     public function scopeForModel(Builder $query, RestHookable $model): Builder
     {
-        return $query->where('model_type', get_class($model))
-            ->where('model_id', $model->getKey());
+        return $query->where('model_type', get_class($model));
     }
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Collinped\LaravelRestHooks\Tests\Feature\Models;
 
 use Collinped\LaravelRestHooks\Tests\TestCase;

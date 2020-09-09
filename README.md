@@ -1,8 +1,10 @@
 # laravel-rest-hooks
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/collinped/laravel-rest-hooks.svg?style=flat-square)](https://packagist.org/packages/collinped/laravel-rest-hooks)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/collinped/laravel-rest-hooks/run-tests?label=tests)](https://github.com/collinped/laravel-rest-hooks/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/collinped/laravel-rest-hooks/Tests?style=flat-square&label=tests)](https://github.com/collinped/laravel-rest-hooks/actions?query=workflow%3ATests+branch%3Amaster)
 [![Total Downloads](https://img.shields.io/packagist/dt/collinped/laravel-rest-hooks.svg?style=flat-square)](https://packagist.org/packages/collinped/laravel-rest-hooks)
+![](https://img.shields.io/packagist/php-v/collinped/laravel-rest-hooks.svg?style=flat-square)
+[![License](https://img.shields.io/github/license/collinped/laravel-rest-hooks.svg?style=flat-square&label=license)](LICENSE.md)
 
 Package for managing [Rest Hooks](https://resthooks.org) in Laravel for use with platforms such as [Zapier](https://zapier.com/). Built on top of [spatie/laravel-webhook-server](https://github.com/spatie/laravel-webhook-server).
 

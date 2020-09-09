@@ -29,23 +29,6 @@ class LaravelRestHooksController
 
     public function store(Request $request)
     {
-
-
-        // if instant validation
-//        $validationIsEnabled = true;
-//        if ($validationIsEnabled) {
-//            $instantValidation = true;
-//            if ($instantValidation) {
-//                // Send a POST Request to the target_url with X-Hook-Secret
-//                $webHook = WebhookCall::create()
-//                    ->useHttpVerb('POST')
-//                    ->url($request->input('target_url'))
-//                    ->withHeaders([
-//                        'X-Hook-Secret' => rand(6)
-//                    ])
-//                    ->dispatchNow();
-//            }
-//        }
         $request->merge(['user_id' => auth()->user()->id]);
 
         $restHook = RestHook::create($request->all());

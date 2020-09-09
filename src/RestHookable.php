@@ -5,6 +5,7 @@ namespace Collinped\LaravelRestHooks;
 use Collinped\LaravelRestHooks\Models\RestHook;
 use Collinped\LaravelRestHooks\Observers\RestHookableObserver;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use ReflectionClass;
 
 
 trait RestHookable
@@ -33,19 +34,28 @@ trait RestHookable
      *
      * @return array
      */
-    public function getUnRestHookableAttributes(): array
+    public function getRestUnHookableAttributes(): array
     {
         return [];
+    }
+
+    public function getRestHookEventName(): string
+    {
+        // (new \ReflectionClass(get_called_class()))->getShortName()
+        return strtolower((new ReflectionClass($this))->getShortName());
     }
 
     /**
      * Relation to changes.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     * @return MorphMany
      */
+
+    // This could be a HasMany based on getRestHookEventName()?
     public function restHooks(): MorphMany
     {
         return $this->morphMany(RestHook::class, 'loggable', 'model_type', 'model_id')
             ->orderBy('created_at', 'desc');
     }
+
 }
