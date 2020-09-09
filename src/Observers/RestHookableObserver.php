@@ -3,8 +3,8 @@
 
 namespace Collinped\LaravelRestHooks\Observers;
 
-use Collinped\LaravelRestHooks\RestHookable;
 use Collinped\LaravelRestHooks\Jobs\SendRestHook;
+use Collinped\LaravelRestHooks\RestHookable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

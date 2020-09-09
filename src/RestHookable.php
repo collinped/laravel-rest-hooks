@@ -56,5 +56,4 @@ trait RestHookable
         return $this->morphMany(RestHook::class, 'loggable', 'model_type', 'model_id')
             ->orderBy('created_at', 'desc');
     }
-
 }
