@@ -7,7 +7,6 @@ use Collinped\LaravelRestHooks\Observers\RestHookableObserver;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use ReflectionClass;
 
-
 trait RestHookable
 {
 

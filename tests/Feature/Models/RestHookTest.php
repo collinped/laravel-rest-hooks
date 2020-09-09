@@ -2,8 +2,8 @@
 
 namespace Collinped\LaravelRestHooks\Tests\Feature\Models;
 
-use Collinped\LaravelRestHooks\Tests\TestCase;
 use Collinped\LaravelRestHooks\Models\RestHook;
+use Collinped\LaravelRestHooks\Tests\TestCase;
 
 class RestHookTest extends TestCase
 {
@@ -14,6 +14,4 @@ class RestHookTest extends TestCase
 
         $this->assertDatabaseCount('rest_hooks', 1);
     }
-
-
 }
