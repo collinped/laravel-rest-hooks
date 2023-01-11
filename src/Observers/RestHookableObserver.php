@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Collinped\LaravelRestHooks\Observers;
 
 use Collinped\LaravelRestHooks\Jobs\SendRestHook;
@@ -18,7 +17,7 @@ class RestHookableObserver
     /**
      * LoggableObserver constructor.
      *
-     * @param Authenticatable $user
+     * @param  Authenticatable  $user
      */
     public function __construct(Authenticatable $user)
     {
@@ -28,8 +27,7 @@ class RestHookableObserver
     /**
      * Log a created model.
      *
-     * @param RestHookable|Model $model
-     *
+     * @param  RestHookable|Model  $model
      * @return void
      */
     public function created(RestHookable $model): void
@@ -45,15 +43,12 @@ class RestHookableObserver
     /**
      * Log an updated model.
      *
-     * @param RestHookable|Model $model
-     *
+     * @param  RestHookable|Model  $model
      * @return void
      */
     public function updated(RestHookable $model): void
     {
         $data = $this->buildDataToSend('update', $model);
-
-
 
 //        foreach ($this->getHookableAttributes($model) as $change) {
 //            $data['attribute'] = $change['attribute'];
@@ -67,8 +62,7 @@ class RestHookableObserver
     /**
      * Log a deleted model.
      *
-     * @param RestHookable|Model $model
-     *
+     * @param  RestHookable|Model  $model
      * @return void
      */
     public function deleted(RestHookable $model): void
@@ -89,15 +83,14 @@ class RestHookableObserver
     /**
      * Build up the array of data to send.
      *
-     * @param string $eventAction
-     * @param RestHookable|Model $model
-     *
+     * @param  string  $eventAction
+     * @param  RestHookable|Model  $model
      * @return array
      */
     protected function buildDataToSend(string $eventAction, RestHookable $model): array
     {
         return [
-            'event' => $model->getRestHookEventName() . '.' . $eventAction,
+            'event' => $model->getRestHookEventName().'.'.$eventAction,
             'user_id' => $this->userId,
         ];
     }
@@ -105,8 +98,7 @@ class RestHookableObserver
     /**
      * Return an array of old and new values that should be logged.
      *
-     * @param RestHookable|Model $model
-     *
+     * @param  RestHookable|Model  $model
      * @return array
      */
     private function getLoggableAttributes(RestHookable $model): array
@@ -157,8 +149,7 @@ class RestHookableObserver
     /**
      * Get the timestamp attributes on the model that are normally not sent to the rest hook.
      *
-     * @param RestHookable|Model $model
-     *
+     * @param  RestHookable|Model  $model
      * @return array
      */
     private function getTimestampAttributes(RestHookable $model): array

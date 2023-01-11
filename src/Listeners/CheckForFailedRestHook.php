@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Collinped\LaravelRestHooks\Listeners;
 
 use Collinped\LaravelRestHooks\Models\RestHook;
@@ -31,6 +30,6 @@ class CheckForFailedRestHook
             if ($restHook) {
                 $restHook->update(['active' => false]);
             }
-        };
+        }
     }
 }

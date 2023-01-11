@@ -9,7 +9,6 @@ use ReflectionClass;
 
 trait RestHookable
 {
-
     /**
      * Register events that intercept when model is being saved.
      */

@@ -8,7 +8,7 @@ class CreateLaravelRestHooksTable extends Migration
 {
     public function up()
     {
-        Schema::create('rest_hooks', function (Blueprint $table) {
+        Schema::create(config('rest-hooks.table'), function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('event'); // user.create
@@ -28,6 +28,6 @@ class CreateLaravelRestHooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropTable('rest_hooks');
+        Schema::dropTable(config('rest-hooks.table'));
     }
 }

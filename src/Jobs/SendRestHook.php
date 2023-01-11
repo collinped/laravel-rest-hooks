@@ -21,7 +21,7 @@ class SendRestHook implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param RestHook $restHook
+     * @param  RestHook  $restHook
      * @param $data
      */
     public function __construct(RestHook $restHook, $data)
@@ -33,7 +33,7 @@ class SendRestHook implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param WebhookCall $webhookCall
+     * @param  WebhookCall  $webhookCall
      * @return void
      */
     public function handle(WebhookCall $webhookCall)

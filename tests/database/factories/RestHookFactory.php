@@ -1,7 +1,7 @@
 <?php
 
-use \Faker\Generator;
 use Collinped\LaravelRestHooks\Models\RestHook;
+use Faker\Generator;
 
 /* @var Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(RestHook::class, function (Generator $faker) {

@@ -13,7 +13,7 @@ class RestHook extends Model
 {
     protected $table = 'rest_hooks';
 
-    protected $fillable = ['user_id', 'event', 'target_url', 'trigger', 'active'];
+    protected $guarded = [];
 
     public function scopeForUser(Builder $query, $userId): Builder
     {
@@ -32,7 +32,7 @@ class RestHook extends Model
      */
     public function user(): BelongsTo
     {
-        return $this->belongsTo(Config::get('rest_hooks.user_model'));
+        return $this->belongsTo(Config::get('rest-hooks.user_model'));
     }
 
     /**
@@ -48,9 +48,8 @@ class RestHook extends Model
     /**
      * Scope to find changes of a given type.
      *
-     * @param Builder $query
-     * @param string $type
-     *
+     * @param  Builder  $query
+     * @param  string  $type
      * @return Builder
      */
     public function scopeOfType(Builder $query, string $type): Builder
@@ -61,9 +60,8 @@ class RestHook extends Model
     /**
      * Scope to find changes for a given model.
      *
-     * @param Builder $query
-     * @param RestHookable|Model $model
-     *
+     * @param  Builder  $query
+     * @param  RestHookable|Model  $model
      * @return Builder
      */
     public function scopeForModel(Builder $query, RestHookable $model): Builder

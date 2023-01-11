@@ -48,7 +48,7 @@ class LaravelRestHooksController
      * https://zapier.com/developer/documentation/v2/rest-hooks/#step-3-unsubscribe-a-call-from-zapier-to-your-app
      *
      * @param $id
-     * @param Request $request
+     * @param  Request  $request
      * @return Application|ResponseFactory|Response
      */
     public function destroy($id, Request $request)
@@ -74,7 +74,6 @@ class LaravelRestHooksController
 
     /**
      * https://zapier.com/developer/documentation/v2/rest-hooks/#optional-reverse-unsubscribe-a-call-from-your-app-to-zapier
-     *
      */
     public function unsubscribe($id)
     {

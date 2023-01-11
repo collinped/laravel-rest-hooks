@@ -43,8 +43,8 @@ class LaravelRestHooksControllerTest extends TestCase
         $restHook = factory(RestHook::class)->create(['user_id' => auth()->user()->id, 'target_url' => 'testUrl']);
         $restHook->event = 'user.update';
 
-        $this->put('/hooks/' . $restHook->id, $restHook->toArray())->assertOk();
-        $this->assertDatabaseHas('rest_hooks', ['id' => $restHook->id , 'event' => 'user.update']);
+        $this->put('/hooks/'.$restHook->id, $restHook->toArray())->assertOk();
+        $this->assertDatabaseHas('rest_hooks', ['id' => $restHook->id, 'event' => 'user.update']);
     }
 
     /** @test */
@@ -54,7 +54,7 @@ class LaravelRestHooksControllerTest extends TestCase
 
         $restHook = factory(RestHook::class)->create(['user_id' => auth()->user()->id, 'target_url' => 'testUrl']);
 
-        $this->delete('/hooks/' . $restHook->id, $restHook->toArray())->assertOk();
+        $this->delete('/hooks/'.$restHook->id, $restHook->toArray())->assertOk();
 
         $this->assertDeleted('rest_hooks', ['id' => $restHook->id]);
     }
